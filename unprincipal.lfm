@@ -1,0 +1,149 @@
+object Form1: TForm1
+  Left = 300
+  Height = 475
+  Top = 183
+  Width = 925
+  Caption = 'Form1'
+  ClientHeight = 475
+  ClientWidth = 925
+  OnCreate = FormCreate
+  LCLVersion = '2.0.12.0'
+  object TabControl1: TTabControl
+    Left = 0
+    Height = 475
+    Top = 0
+    Width = 925
+    Style = tsFlatButtons
+    Align = alClient
+    ParentFont = False
+    TabOrder = 0
+    object DBGrid1: TDBGrid
+      Left = 2
+      Height = 393
+      Top = 80
+      Width = 921
+      Align = alClient
+      AutoFillColumns = True
+      Color = clWindow
+      Columns = <>
+      DataSource = DataSource1
+      TabOrder = 1
+    end
+    object Panel1: TPanel
+      Left = 2
+      Height = 77
+      Top = 3
+      Width = 921
+      Align = alTop
+      ClientHeight = 77
+      ClientWidth = 921
+      TabOrder = 2
+      object Button1: TButton
+        Left = 381
+        Height = 25
+        Top = 8
+        Width = 163
+        Caption = 'Carregar Produtos'
+        OnClick = Button1Click
+        TabOrder = 0
+      end
+      object Label1: TLabel
+        Left = 416
+        Height = 15
+        Top = 41
+        Width = 88
+        Caption = 'Token válido até:'
+        ParentColor = False
+      end
+      object Lbl_ValidadeToken: TLabel
+        Left = 384
+        Height = 15
+        Top = 57
+        Width = 160
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'Validade token'
+        ParentColor = False
+      end
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = RESTDWClientSQL_DWClientREST_BearerToken
+    Left = 224
+    Top = 128
+  end
+  object DWClientREST_BearerToken: TDWClientREST
+    UseSSL = True
+    CertMode = sslmUnassigned
+    SSLMethod = sslvSSLv2
+    SSLVersions = [sslvSSLv2, sslvTLSv1_2]
+    PortCert = 0
+    UserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36'
+    Accept = 'application/json'
+    AcceptEncoding = 'gzip, deflate, br'
+    ContentEncoding = 'multipart/form-data'
+    MaxAuthRetries = 0
+    ContentType = 'application/json'
+    RequestCharset = esUtf8
+    ProxyOptions.BasicAuthentication = False
+    ProxyOptions.ProxyPort = 0
+    RequestTimeOut = 1000
+    ConnectTimeOut = 5000
+    AllowCookies = False
+    HandleRedirects = False
+    RedirectMaximum = 1
+    VerifyCert = False
+    AuthenticationOptions.AuthorizationOption = rdwAOBearer
+    AuthenticationOptions.OptionParams.AuthDialog = False
+    AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
+    AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
+    AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
+    AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
+    AuthenticationOptions.OptionParams.TokenType = rdwPersonal
+    AuthenticationOptions.OptionParams.TokenRequestType = rdwtHeader
+    AuthenticationOptions.OptionParams.GetTokenEvent = 'GetToken'
+    AuthenticationOptions.OptionParams.Key = 'token'
+    AuthenticationOptions.OptionParams.AutoGetToken = False
+    AuthenticationOptions.OptionParams.AutoRenewToken = False
+    AccessControlAllowOrigin = '*'
+    OnBeforeGet = DWClientREST_BearerTokenBeforeGet
+    Left = 524
+    Top = 224
+  end
+  object RESTDWClientSQL_DWClientREST_BearerToken: TRESTDWClientSQL
+    Active = False
+    Encoding = esUtf8
+    DatabaseCharSet = csWin1252
+    FieldDefs = <>
+    BinaryCompatibleMode = True
+    MasterCascadeDelete = True
+    BinaryRequest = False
+    Datapacks = -1
+    DataCache = False
+    MassiveType = mtMassiveCache
+    Params = <>
+    CacheUpdateRecords = True
+    AutoCommitData = False
+    AutoRefreshAfterCommit = False
+    ThreadRequest = False
+    RaiseErrors = True
+    Filtered = False
+    DWResponseTranslator = DWResponseTranslator_DWClientREST_BearerToken
+    ActionCursor = crSQLWait
+    ReflectChanges = False
+    Left = 553
+    Top = 224
+  end
+  object DWResponseTranslator_DWClientREST_BearerToken: TDWResponseTranslator
+    ElementAutoReadRootIndex = True
+    ElementRootBaseIndex = -1
+    RequestOpen = rtGet
+    RequestInsert = rtPost
+    RequestEdit = rtPost
+    RequestDelete = rtDelete
+    FieldDefs = <>
+    ClientREST = DWClientREST_BearerToken
+    Left = 585
+    Top = 224
+  end
+end

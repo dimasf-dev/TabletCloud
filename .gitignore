@@ -1,0 +1,10 @@
+/backup
+/lib
+/sound
+/*.log
+/*.exe
+/*.dbg
+/*.dll
+/ppas.bat
+/link.res
+/config.ini
