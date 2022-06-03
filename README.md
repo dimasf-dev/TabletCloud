@@ -1,2 +1,2 @@
 # TabletCloud
-Exemplo de uso TabletCloud usando RDW
+Exemplo de busca de dados api TabletCloud usando RDW
